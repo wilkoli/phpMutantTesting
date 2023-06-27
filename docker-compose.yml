@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+
+  php:
+    build: docker/php
+    container_name: php
+    ports:
+      - "80:80"
+    restart: unless-stopped
+    environment:
+      PHP_IDE_CONFIG: 'serverName=localhost'
+      XDEBUG_REMOTE_HOST: 'docker.for.mac.host.internal'
+    working_dir: /var/www/PhpMutantTesting
+    volumes:
+        - .:/var/www/PhpMutantTesting
+    networks:
+      - php-mutant-testing-network
+
+networks:
+  php-mutant-testing-network:
+    driver: bridge

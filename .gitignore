@@ -1,0 +1,15 @@
+
+###> symfony/framework-bundle ##
+/infection.log
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
+
+.composer
+.idea
+*.iml
+.cache
+.bash_history
+.env
+.php-version

@@ -1,0 +1,104 @@
+{
+  "name": "deporvillage/php",
+  "description": "Php project as example of usage of Mutant testing by infection vendor tool",
+  "type": "project",
+  "license": "proprietary",
+  "minimum-stability": "stable",
+  "prefer-stable": true,
+  "require": {
+    "php": ">=8.1",
+    "ext-ctype": "*",
+    "ext-iconv": "*",
+    "ext-intl": "*",
+    "ext-json": "*",
+    "ext-zlib": "*",
+    "bref/bref": "^1.6",
+    "bref/symfony-bridge": "^0.2.1",
+    "symfony/config": "^6.0",
+    "symfony/console": "^6.0",
+    "symfony/dependency-injection": "^6.0",
+    "symfony/dotenv": "^6.0",
+    "symfony/framework-bundle": "^6.0",
+    "symfony/runtime": "^6.0",
+    "webmozart/assert": "^1.10"
+  },
+  "require-dev": {
+    "infection/infection": "^0.26.2",
+    "phpstan/extension-installer": "^1.1",
+    "phpstan/phpstan": "^1.8",
+    "phpstan/phpstan-webmozart-assert": "^1.0",
+    "phpunit/phpunit": "^9.5",
+    "roave/infection-static-analysis-plugin": "^1.16.0",
+    "squizlabs/php_codesniffer": "^3.6",
+    "symfony/browser-kit": "^6.0",
+    "symfony/var-dumper": "^6.0",
+    "symplify/easy-coding-standard": "^11.0",
+    "vimeo/psalm": "^4.24"
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": {
+      "*": "dist"
+    },
+    "sort-packages": true,
+    "allow-plugins": {
+      "phpstan/extension-installer": true,
+      "composer/package-versions-deprecated": true,
+      "infection/extension-installer": true,
+      "symfony/runtime": true
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "PhpMutantTesting\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Test\\PhpMutantTesting\\": "tests/"
+    }
+  },
+  "replace": {
+    "symfony/polyfill-ctype": "*",
+    "symfony/polyfill-iconv": "*",
+    "symfony/polyfill-php72": "*"
+  },
+  "scripts": {
+    "auto-scripts": {
+    },
+    "post-install-cmd": [
+      "@auto-scripts"
+    ],
+    "post-update-cmd": [
+      "@auto-scripts"
+    ],
+    "precommit-check": [
+      "@cs-check",
+      "@test",
+      "@inspect",
+      "@psalm"
+    ],
+    "check-all": [
+      "@cs-check",
+      "@test",
+      "@inspect",
+      "@psalm",
+      "@infection"
+    ],
+    "cs-check": "ecs check src config",
+    "cs-fix": "ecs check src config --fix",
+    "inspect": "phpstan analyse src config -l9 --ansi --xdebug",
+    "test": "vendor/bin/phpunit --colors=always",
+    "psalm": "psalm --no-cache",
+    "infection": "XDEBUG_MODE=coverage roave-infection-static-analysis-plugin"
+  },
+  "conflict": {
+    "symfony/symfony": "*"
+  },
+  "extra": {
+    "symfony": {
+      "allow-contrib": false,
+      "require": "5.3.*"
+    }
+  }
+}
