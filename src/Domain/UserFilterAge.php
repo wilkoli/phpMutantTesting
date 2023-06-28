@@ -1,10 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PhpMutantTesting\Domain;
 
 class UserFilterAge
 {
-    const MAX_AGE = 18;
+    private const MAX_AGE = 18;
+
     public function __invoke(array $collection)
     {
         return array_filter(

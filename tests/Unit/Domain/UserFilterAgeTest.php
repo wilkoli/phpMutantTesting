@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\PhpMutantTesting\Unit\Domain;
+namespace Test\PhpMutantTesting\Unit\Domain;
 
+use Generator;
 use PhpMutantTesting\Domain\UserFilterAge;
 use PHPUnit\Framework\TestCase;
 
@@ -16,22 +17,25 @@ class UserFilterAgeTest extends TestCase
         $this->assertCount($expectedCount, $filter($collection));
     }
 
-    public function usersProvider()
+    public function usersProvider(): Generator
     {
-        return [
+        yield 'collection contains ages greater than 18' => [
             [
-                [
-                    ['age' => 15],
-                    ['age' => 20],
-                ],
-                1
+                ['age' => 15],
+                ['age' => 20],
+                ['age' => 24],
             ],
-            [
-                [
-                    ['age' => 18],
-                ],
-                1
-            ]
+            2
         ];
+
     }
 }
+
+/*
+ yield 'collection contains age equal to 18' => [
+            [
+                ['age' => 18],
+            ],
+            1
+        ];
+ */

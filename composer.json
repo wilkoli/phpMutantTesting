@@ -1,6 +1,6 @@
 {
   "name": "deporvillage/php",
-  "description": "Php project as example of usage of Mutant testing by infection vendor tool",
+  "description": "Symfony project as example of usage of Mutant testing by infection vendor tool",
   "type": "project",
   "license": "proprietary",
   "minimum-stability": "stable",

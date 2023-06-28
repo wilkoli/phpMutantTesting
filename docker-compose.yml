@@ -11,9 +11,9 @@ services:
     environment:
       PHP_IDE_CONFIG: 'serverName=localhost'
       XDEBUG_REMOTE_HOST: 'docker.for.mac.host.internal'
-    working_dir: /var/www/PhpMutantTesting
+    working_dir: /var/www/src
     volumes:
-        - .:/var/www/PhpMutantTesting
+        - .:/var/www/src
     networks:
       - php-mutant-testing-network
 
