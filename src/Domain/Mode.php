@@ -8,5 +8,4 @@ enum Mode: string
 {
     case SUM = 'sum';
     case MIN = 'min';
-
 }
