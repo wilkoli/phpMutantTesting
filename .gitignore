@@ -16,3 +16,4 @@
 .bash_history
 .env
 .php-version
+.phpunit.result.cache

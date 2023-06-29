@@ -8,7 +8,7 @@ class UserFilterAge
 {
     private const MAX_AGE = 18;
 
-    public function __invoke(array $collection)
+    public function __invoke(array $collection): array
     {
         return array_filter(
             $collection,

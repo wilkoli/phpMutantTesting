@@ -19,6 +19,11 @@ final class Money
         return new self($centAmount, $currencyCode);
     }
 
+    public function floatAmount(): float
+    {
+        return $this->centAmount / 100;
+    }
+
     public function formatPrice(string $country): string
     {
         /** @var string $formatPrice */
@@ -26,10 +31,5 @@ final class Money
             ->formatCurrency($this->floatAmount(), $this->currencyCode);
 
         return $formatPrice;
-    }
-
-    public function floatAmount(): float
-    {
-        return $this->centAmount / 100;
     }
 }

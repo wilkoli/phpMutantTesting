@@ -30,7 +30,7 @@ class CalculatorTest extends TestCase
 }
 
 /*
-    yield 'operate without absolute values' => [
+ *  yield 'operate without absolute values' => [
             2,
             -2,
             Mode::MIN,

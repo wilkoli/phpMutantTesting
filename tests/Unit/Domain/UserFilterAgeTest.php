@@ -21,17 +21,30 @@ class UserFilterAgeTest extends TestCase
     {
         yield 'collection contains ages greater than 18' => [
             [
-                ['age' => 15],
                 ['age' => 20],
                 ['age' => 24],
             ],
             2
         ];
 
+        yield 'empty collection' => [
+            [],
+            0
+        ];
+
     }
 }
 
 /*
+
+ yield 'collection contains ages lower than 18' => [
+            [
+                ['age' => 15],
+                ['age' => 8],
+            ],
+            0
+        ];
+
  yield 'collection contains age equal to 18' => [
             [
                 ['age' => 18],
