@@ -8,7 +8,7 @@ class Calculator
 {
     public function add(int $value, int $anotherValue, Mode $mode): int
     {
-        if ($mode === Mode::SUM) {
+        if ($mode === Mode::ABSOLUTE) {
             $value = abs($value);
             $anotherValue = abs($anotherValue);
         }

@@ -6,6 +6,6 @@ namespace PhpMutantTesting\Domain;
 
 enum Mode: string
 {
-    case SUM = 'sum';
-    case MIN = 'min';
+    case ABSOLUTE = 'absolute';
+    case RELATIVE = 'relative';
 }

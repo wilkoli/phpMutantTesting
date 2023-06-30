@@ -23,17 +23,18 @@ class CalculatorTest extends TestCase
         yield 'operate with absolute values' => [
             2,
             2,
-            Mode::SUM,
+            Mode::ABSOLUTE,
             4
         ];
+
     }
 }
 
 /*
- *  yield 'operate without absolute values' => [
+ yield 'operate without absolute values' => [
             2,
             -2,
-            Mode::MIN,
+            Mode::RELATIVE,
             0
         ];
  */
